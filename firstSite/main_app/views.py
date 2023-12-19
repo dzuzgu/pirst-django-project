@@ -12,7 +12,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.core.mail.message import EmailMessage
 from django.core import mail
 from django.conf import settings
-# Create your views here.
 
 
 def index(request):
@@ -42,8 +41,6 @@ def contact_view(request):
             name=name, surname=surname, email=email, number=phone, message=description)
         contact_query.save()
         from_email = settings.EMAIL_HOST_USER
-        # email starts here
-        # your mail starts here
         connection = mail.get_connection()
         connection.open()
         email_mesge = mail.EmailMessage(f'Website Email from {fullname}', f'Email from : {email}\nUser Query :{description}\nPhone No : {phone}', from_email, ['lukadzagaia@gmail.com'], connection=connection)
